@@ -16,13 +16,28 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: const Text('Responsiveness'),
         ),
-        body: Container(
-          margin: const EdgeInsets.all(20),
-          child: const FractionallySizedBox(
-            widthFactor: 0.95,
-            heightFactor: 0.3,
-            child: Card1()
-          ),
-        ));
+        body: LayoutBuilder(
+          builder: (context, constraint) {
+          return Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.all(8),
+                child: Card1(context , constraint),
+              ),
+              // Positioned(
+              //   top: 20,
+              //   left: 30,
+              //   right: 30,
+              //   child: Container(
+              //     color: Colors.blue
+              //   )
+              // ),
+              Container(
+                margin: const EdgeInsets.all(8),
+                child: Card2(context , constraint)
+              ),
+            ],
+          );
+        }));
   }
 }
